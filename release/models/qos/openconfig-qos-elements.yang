@@ -464,6 +464,7 @@ submodule openconfig-qos-elements {
         description
           "Configuration data for WRED";
 
+        uses qos-queue-red-common-config;
         uses qos-queue-wred-config;
       }
 
@@ -472,6 +473,7 @@ submodule openconfig-qos-elements {
         description
           "Operational state data for WRED";
 
+        uses qos-queue-red-common-config;
         uses qos-queue-wred-config;
         uses qos-queue-wred-state;
       }
@@ -481,24 +483,6 @@ submodule openconfig-qos-elements {
   grouping qos-queue-red-config {
     description
       "Configuration data for queues managed with RED";
-
-    leaf minth {
-      type uint64;
-      units bytes;
-      description
-        "The mininum threshold parameter for a RED-managed queue.
-        When the average queue length is less than minth, all
-        packets are admitted to the queue.";
-    }
-
-    leaf maxth {
-      type uint64;
-      units bytes;
-      description
-        "The maximum threshold parameter for a RED-managed queue.
-        When the average queue length exceeds the maxth value, all
-        packets are dropped (or marked if ECN is enabled).";
-    }
   }
 
   grouping qos-queue-red-state {
@@ -519,6 +503,7 @@ submodule openconfig-qos-elements {
         description
           "Configuration data for RED queues";
 
+        uses qos-queue-red-common-config;
         uses qos-queue-red-config;
       }
 
@@ -527,6 +512,7 @@ submodule openconfig-qos-elements {
         description
           "Operational state data for RED queues";
 
+        uses qos-queue-red-common-config;
         uses qos-queue-red-config;
         uses qos-queue-red-state;
       }
